@@ -182,7 +182,7 @@ There is really no impact of imputing missing data on the daily total of number 
 
 **Are there differences in activity patterns between weekdays and weekends?**  
 
-The dataset with the filled-in missing values for this part.  
+The dataset with the filled-in missing values is used for this part.  
 Using the weekdays function, the day of week for each record is computed.  
 A new factor variable is created in the dataset with two levels - **"weekday"** and **"weekend"** indicating whether a given date is a weekday or weekend day.  
 
