@@ -121,10 +121,10 @@ num_NAs  <- nrow(data[t1,])
 There are **2304** missing values in the dataset.  
 
 
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.  Explain..
-Missing values will be replaced with the mean for the 5 minute interval.
+2. Since activity would typically depend upon the time of day, a suitable strategy for imputing missing values would be to **replace missing values** with the **mean for the 5 minute interval**.  
 
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.  
+For further analysis, we will use the new data set with imputed missing values.
 
 
 ```r
@@ -158,7 +158,7 @@ p1 <- hist(data_sum_adjusted$adjusted_sum, breaks = 50,
 p2 <- hist(data_sum_adjusted$sum, breaks = 50)
 ```
 
-Here we will overlay the histogram of imupted data along with the histogram of raw data, to gauge any apparent differences.
+Here we will overlay the histogram of imputed data along with the histogram of raw data, to gauge any apparent differences.
 
 
 ```r
@@ -205,7 +205,7 @@ g <- ggplot(data1, aes(x= interval, y = adjusted_steps))
 g <- g + facet_grid(DayType ~. )
 g <- g + geom_line(stat = "summary", fun.y = "mean", aes(col = DayType) )
 g <- g + xlab("5 minute intervals") + ylab("average number of steps") 
-g <- g + ggtitle("Weekend/weekday averages of number of steps")
+g <- g + ggtitle("Panel plot Weekend/weekday averages of number of steps")
 g <- g + scale_x_continuous(breaks = seq(from = 0, to = 2400, by = 200))
 print(g)
 ```
