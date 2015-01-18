@@ -29,26 +29,19 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 **Loading and preprocessing the data**
 
 Load the data (i.e. read.csv())
-Process/transform the data (if necessary) into a format suitable for your analysis
+Process/transform the data into a format suitable for analysis.  
 
 
 ```r
 data <- read.csv("activity.csv", header=TRUE)
 library(plyr)
-```
-
-```
-## Warning: package 'plyr' was built under R version 3.1.1
-```
-
-```r
 data_sum <- ddply(data, c("date"), summarize, sum(steps))
 colnames(data_sum)[2] <- "steps_per_day"
 ```
 
 **What is mean total number of steps taken per day?**  
-For this part of the assignment, you can ignore the missing values in the dataset.
-Make a histogram of the total number of steps taken each day.
+For this part of the assignment, the missing values in the dataset are ignored.
+A histogram of the total number of steps taken each day is studied.
 
 
 ```r
@@ -91,7 +84,7 @@ The median number of steps per day = 10765
 data_by_interval <- ddply(data,c("interval"), summarize, mean(steps, na.rm=TRUE))
 colnames(data_by_interval)[2] <- "mean_5min"
 ```
-Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  
+A time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  
 
 
 ```r

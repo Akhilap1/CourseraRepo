@@ -216,22 +216,17 @@ hr {
 <p><strong>Loading and preprocessing the data</strong></p>
 
 <p>Load the data (i.e. read.csv())
-Process/transform the data (if necessary) into a format suitable for your analysis</p>
+Process/transform the data into a format suitable for analysis.  </p>
 
 <pre><code class="r">data &lt;- read.csv(&quot;activity.csv&quot;, header=TRUE)
 library(plyr)
-</code></pre>
-
-<pre><code>## Warning: package &#39;plyr&#39; was built under R version 3.1.1
-</code></pre>
-
-<pre><code class="r">data_sum &lt;- ddply(data, c(&quot;date&quot;), summarize, sum(steps))
+data_sum &lt;- ddply(data, c(&quot;date&quot;), summarize, sum(steps))
 colnames(data_sum)[2] &lt;- &quot;steps_per_day&quot;
 </code></pre>
 
 <p><strong>What is mean total number of steps taken per day?</strong><br/>
-For this part of the assignment, you can ignore the missing values in the dataset.
-Make a histogram of the total number of steps taken each day.</p>
+For this part of the assignment, the missing values in the dataset are ignored.
+A histogram of the total number of steps taken each day is studied.</p>
 
 <pre><code class="r">summary(data_sum)
 </code></pre>
@@ -267,7 +262,7 @@ The median number of steps per day = 10765  </p>
 colnames(data_by_interval)[2] &lt;- &quot;mean_5min&quot;
 </code></pre>
 
-<p>Make a time series plot (i.e. type = &ldquo;l&rdquo;) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  </p>
+<p>A time series plot (i.e. type = &ldquo;l&rdquo;) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  </p>
 
 <pre><code class="r">with (data_by_interval, plot(interval, mean_5min, type=&#39;l&#39;, 
                              ylab = &quot;average number of steps&quot;, 
