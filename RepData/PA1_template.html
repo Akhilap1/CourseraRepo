@@ -289,6 +289,10 @@ The presence of missing days may introduce bias into some calculations or summar
 <li>Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)<br/></li>
 </ol>
 
+<pre><code class="r">t1 &lt;- is.na(data$steps)
+num_NAs  &lt;- nrow(data[t1,])
+</code></pre>
+
 <p>There are <strong>2304</strong> missing values in the dataset.  </p>
 
 <ol>
